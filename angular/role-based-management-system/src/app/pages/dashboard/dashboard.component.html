@@ -1,0 +1,17 @@
+
+<h3>Select Role</h3>
+
+<div *ngIf="!currentRole" class="button-group">
+  <p>Select Role:</p>
+  <button (click)="selectRole('admin')">Admin</button>
+  <button (click)="selectRole('manager')">Manager</button>
+  <button (click)="selectRole('employee')">Employee</button>
+</div>
+
+<!-- CHILD ROUTES LOAD HERE -->
+<router-outlet></router-outlet>
+
+<!-- CHANGE ROLE -->
+<button *ngIf="currentRole" (click)="changeRole()">
+  Change Role
+</button>

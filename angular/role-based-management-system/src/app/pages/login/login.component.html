@@ -1,0 +1,38 @@
+<h3>Login</h3>
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+
+<label>Email</label><br>
+<input type="email" 
+name="email" 
+[(ngModel)]="email" 
+required 
+email 
+#emailRef="ngModel">
+ <br>
+  <small *ngIf="emailRef.invalid && emailRef.touched" style="color:red">
+    Valid email is required
+  </small>
+<br><br>
+
+<label>Password</label><br>
+<input type="password" 
+name="password" 
+[(ngModel)]="password" 
+required 
+minlength="4" 
+#passwordRef="ngModel">
+<br>
+  <small *ngIf="passwordRef.invalid && passwordRef.touched" style="color:red">
+    Password must be at least 4 characters
+  </small>
+<br><br>
+
+  <p *ngIf="loginError" style="color:red">
+    {{ loginError }}
+  </p>
+
+  <button type="submit" [disabled]="loginForm.invalid">
+    Login
+  </button>
+
+</form>

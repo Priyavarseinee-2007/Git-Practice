@@ -1,0 +1,25 @@
+<div style="display:flex">
+
+  <nav style="width:200px; background:#f5f5f5; padding:10px;">
+    <p><strong>Navigation</strong></p>
+
+<p *ngIf="currentRole"> 
+  <strong>Current Role:</strong>
+  {{ currentRole | titlecase }}
+</p>
+
+    <a routerLink="/login"
+    routerLinkActive="active-link"
+    [routerLinkActiveOptions]="{ exact: true }">
+    Login</a>
+    <br><br>
+    <a routerLink="/dashboard"
+    routerLinkActive="active-link"
+    >Dashboard</a>
+  </nav>
+
+  <main style="flex:1; padding:20px;">
+    <router-outlet></router-outlet>
+  </main>
+
+</div>    
